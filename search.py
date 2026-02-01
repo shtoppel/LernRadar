@@ -4,10 +4,10 @@ from database import Session, Keyword, DiaryEntry
 
 def show_search(query=None):
     session = Session()
-    st.subheader("🔍 Suche nach Schlüsselwörter")
+    st.subheader("🔍 Suche")
 
     # Если запрос не передан через функцию, берем из строки ввода
-    search_query = st.text_input("Suche nach Schlüsselwörter", value=query if query else "").lower()
+    search_query = st.text_input("Suche", value=query if query else "").lower()
 
     if search_query:
         results = session.query(Keyword).filter(Keyword.word.contains(search_query)).all()

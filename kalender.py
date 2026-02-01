@@ -39,16 +39,21 @@ def show_kalender():
 
     with col_view:
         st.write("### Vorschau")
-        if entry:
+        if entry:  # Проверяем, что запись вообще существует
             st.markdown(f"**Lehrer:** {entry.teacher}")
-            st.write(f"**Notizen:** {entry.content}")
-            # Красиво выводим теги кнопками (просто для визуала)
+            st.write(entry.content)
+
             if entry.keywords:
-                st.write("Tags:")
+                st.write("Keywords:")
                 cols = st.columns(len(entry.keywords))
                 for i, kw in enumerate(entry.keywords):
-                    cols[i].button(kw.word, key=f"kw_{kw.id}")
+                    if cols[i].button(kw.word, key=f"kw_{kw.id}"):
+                        # Сначала записываем слово для поиска
+                        st.session_state.search_word = kw.word
+                        # Вместо смены страницы здесь, используем специальный триггер
+                        st.session_state.trigger_search = True
+                        st.rerun()
         else:
-            st.info("Es gibt keine Daten an diesem Tag.")
+            st.info("Keine Notizen an diesem Datum")
 
     session.close()  # Важно закрывать сессию
