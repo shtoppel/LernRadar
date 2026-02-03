@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker, relationship
 
 Base = declarative_base()
 
-# Таблица записей дневника
+# Tables
 class DiaryEntry(Base):
     __tablename__ = 'entries'
     id = Column(Integer, primary_key=True)
@@ -15,6 +15,8 @@ class DiaryEntry(Base):
     # Связь с тегами и ресурсами
     keywords = relationship("Keyword", back_populates="entry", cascade="all, delete")
     resources = relationship("Resource", back_populates="entry", cascade="all, delete")
+    images = relationship("EntryImage", back_populates="entry", cascade="all, delete-orphan")
+
 
 class Keyword(Base):
     __tablename__ = 'keywords'
@@ -32,7 +34,13 @@ class Resource(Base):
     entry_id = Column(Integer, ForeignKey('entries.id'))
     entry = relationship("DiaryEntry", back_populates="resources")
 
-# Инициализация БД
+class EntryImage(Base):
+    __tablename__ = 'entry_images'
+    id = Column(Integer, primary_key=True)
+    path = Column(String(255), nullable=False)
+    entry_id = Column(Integer, ForeignKey('entries.id'))
+    entry = relationship("DiaryEntry", back_populates="images")
+# Database inizialisation
 engine = create_engine('sqlite:///lernradar.db')
 Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)

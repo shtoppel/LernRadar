@@ -1,12 +1,11 @@
 import streamlit as st
 from database import Session, Keyword, DiaryEntry
 
-
 def show_search(query=None):
     session = Session()
     st.subheader("🔍 Suche")
 
-    # Если запрос не передан через функцию, берем из строки ввода
+    # If the request is not passed through a function, we take it from the input line
     search_query = st.text_input("Suche", value=query if query else "").lower()
 
     if search_query:

@@ -9,5 +9,5 @@ def show_sidebar():
             key="menu_choice"
         )
         st.divider()
-        # Сюда можно будет добавить дерево тем или фильтры позже
+        # this block is still in development
         st.caption("Umschulung Tracker v1.1")
