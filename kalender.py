@@ -15,7 +15,7 @@ def show_kalender():
 
     with col_input:
         teacher = st.text_input("Lehrer", value=entry.teacher if entry else "")
-        content = st.text_area("Themen сегодня?", value=entry.content if entry else "")
+        content = st.text_area("Themen heute?", value=entry.content if entry else "")
         keywords_str = st.text_input("Schlüsselwörter (mit Komma getrennt)",
                                      value=", ".join([k.word for k in entry.keywords]) if entry else "")
 
