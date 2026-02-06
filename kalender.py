@@ -8,9 +8,13 @@ def show_kalender():
     session = Session()
     st.subheader("📅 Lernheft")
 
-    selected_date = st.date_input("Datum auswählen", date.today())
-    entry = session.query(DiaryEntry).filter(DiaryEntry.date == selected_date).first()
+    if "selected_date" not in st.session_state:
+        st.session_state.selected_date = date.today()
 
+    selected_date = st.date_input("Datum auswählen", value=st.session_state.selected_date)
+    st.session_state.selected_date = selected_date
+
+    entry = session.query(DiaryEntry).filter(DiaryEntry.date == selected_date).first()
     col_input, col_view = st.columns(2)
 
     with col_input:

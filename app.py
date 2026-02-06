@@ -38,7 +38,7 @@ if st.session_state.trigger_search:
 show_sidebar()
 
 # 5. Progress Tracker with calculations
-st.title("📊 Progressbar Umschulung 2025-2027")
+st.title("📊 Progressbar Umschulung Fachinformatiker 2025-2027")
 progress_pct, left, passed = get_progress_data(START_DATE, END_DATE)
 
 st.progress(progress_pct)

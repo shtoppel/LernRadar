@@ -1,6 +1,11 @@
 import streamlit as st
 from database import Session, Keyword, DiaryEntry
 
+
+def navigate_to_entry(target_date):
+    st.session_state.selected_date = target_date
+    st.session_state.menu_choice = "📅 Kalender / Lernheft"
+
 def show_search(query=None):
     session = Session()
     st.subheader("🔍 Suche")
@@ -17,6 +22,12 @@ def show_search(query=None):
                 with st.expander(f"📅 {res.entry.date} — {res.entry.teacher}"):
                     st.write(res.entry.content)
                     st.caption(f"Keywords: {', '.join([k.word for k in res.entry.keywords])}")
+                    st.button(
+                        "Fullview / Edit ↗",
+                        key=f"go_{res.entry.id}",
+                        on_click=navigate_to_entry,
+                        args=(res.entry.date,)
+                    )
         else:
             st.warning("No results.")
     session.close()

@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8184f118-e548-43d9-bfc7-82550064ee76" name="Changes" comment="-Added image uploader and saving to database (file_manager.py)&#10;-Added media_server.py for better file processing&#10;-Added js selector and deletion function (file_manager.py)">
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kalender.py" beforeDir="false" afterPath="$PROJECT_DIR$/kalender.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search.py" beforeDir="false" afterPath="$PROJECT_DIR$/search.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +38,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/almanlar/PycharmProjects/LernRadar&quot;
   }
 }</component>
@@ -100,5 +101,15 @@
     <MESSAGE value="-Added sidebar.py for separation logic&#10;-Added search and search by keywords that show dates" />
     <MESSAGE value="-Added image uploader and saving to database (file_manager.py)&#10;-Added media_server.py for better file processing&#10;-Added js selector and deletion function (file_manager.py)" />
     <option name="LAST_COMMIT_MESSAGE" value="-Added image uploader and saving to database (file_manager.py)&#10;-Added media_server.py for better file processing&#10;-Added js selector and deletion function (file_manager.py)" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/search.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
